@@ -190,7 +190,7 @@ impl KRB5State {
                             tx.sname = Some(kdc_rep.ticket.sname);
                             tx.etype = Some(kdc_rep.enc_part.etype);
                             self.transactions.push(tx);
-                            if test_weak_encryption(kdc_rep.enc_part.etype) {
+                            if test_weak_encryption(kdc_rep.ticket.enc_part.etype) {
                                 self.set_event(KRB5Event::WeakEncryption);
                             }
                         };
